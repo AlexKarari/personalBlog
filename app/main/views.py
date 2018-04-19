@@ -38,3 +38,4 @@ def new_blog():
         return redirect(url_for('.index'))
     posts = Blog.query.all()
     return render_template('blogpost.html', form=form, posts=posts)
+

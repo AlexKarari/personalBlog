@@ -18,6 +18,7 @@
     
     {% for post in posts %}
     <li>{{post.blog_name}}</li>
+    <p>{{post.blog_info | truncate(50)}}</p>
     {% endfor %}
 
     <!-- Styles block -->
