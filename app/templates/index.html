@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-<!-- {% import 'macros.html' as macro%} -->
+{% import "bootstrap/wtf.html" as wtf %}
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +15,12 @@
 <!-- Content block -->
 {% block content %}
 <body>
+    
+    {% for post in posts %}
+    <li>{{post.blog_name}}</li>
+    {% endfor %}
 
     <!-- Styles block -->
-
     {% block styles%} {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %} {% endblock%}
 
