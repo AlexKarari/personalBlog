@@ -3,6 +3,7 @@ from . import main
 from .forms import Blog_PostForm
 from ..models import Blog
 from .. import db
+import markdown2
 
 @main.route('/', methods=['GET','POST'])
 def index():
