@@ -2,11 +2,11 @@
 {% import "bootstrap/wtf.html" as wtf %} 
 {% block content %}
 <div class="container">
-     {% for post in posts %}
-    <li>{{post.blog_name}}</li>
-    <li>{{post.blog_info}}</li>
-    <li>{{post.date_posted}}</li>
-    {% endfor %}
+     
+    <li>{{blog.blog_name}}</li>
+    <li>{{blog.blog_info}}</li>
+    <li>{{blog.date_posted}}</li>
+   
 </div>
 
 {%endblock%}

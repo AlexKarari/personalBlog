@@ -39,3 +39,16 @@ def new_blog():
     posts = Blog.query.all()
     return render_template('blogpost.html', form=form, posts=posts)
 
+
+@main.route('/blog/<int:id>')
+def blog(id):
+    '''
+    View blog page function that returns the posted blogpost
+    '''
+
+    blog = Blog.query.get(id)
+    title = f'{blog.blog_name}'
+    
+
+    return render_template('myposts.html', blog=blog,title =title)
+
