@@ -42,6 +42,8 @@ class User_comments(db.Model):
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100))
+    email = db.Column(db.String(100), unique=True)
+    comment = db.Column(db.String(1000))
     blogID = db.Column(db.Integer, db.ForeignKey('blog.id'))
 
     def __repr__(self):

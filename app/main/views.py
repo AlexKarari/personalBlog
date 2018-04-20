@@ -46,6 +46,7 @@ def blog(id):
     View blog page function that returns the posted blogpost
     '''
 
+
     blog = Blog.query.get(id)
     title = f'{blog.blog_name}'
     
