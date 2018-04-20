@@ -31,9 +31,9 @@ class Blog(db.Model):
     __tablename__='blog'
     id = db.Column(db.Integer, primary_key=True)
     blog_name = db.Column(db.String(100))
-    blog_info = db.Column(db.String(20000))
+    blog_info = db.Column(db.String(1000000))
     date_posted = db.Column(db.Time, default=datetime.utcnow())
-    comments = db.relationship('User_comments', backref='comment', lazy="dynamic")
+    comments = db.relationship('User_comments', backref='comments', lazy="dynamic")
 
     def __repr__(self):
         return f'User {self.blog_name}'

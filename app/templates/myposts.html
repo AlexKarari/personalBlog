@@ -7,9 +7,19 @@
     <li>{{blog.blog_info}}</li>
     <li>{{blog.date_posted}}</li>
    
+    
+   
 </div>
 <div class="container">
-    {{ wtf.quick_form(form) }} 
+    {{ wtf.quick_form(commentform) }} 
     {{simplemde.load}}
 </div>
+{% if comments %}
+ {% for comment in comments %}
+ <li>{{comment.comment}}</li>
+ {% endfor %}
+{% else %}
+<p>This post has no comments yet</p>
+{% endif %}
+
 {%endblock%}
