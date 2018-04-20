@@ -20,7 +20,7 @@ def index():
         db.session.commit()
 
         return redirect(url_for('.blogpost'))
-    posts = Blog.query.all()
+    posts = Blog.query.order_by(Blog.date_posted.desc()).all()
     return render_template('index.html', form=form,posts =posts)
 
 @main.route('/blogpost/', methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def new_blog():
         db.session.commit()
 
         return redirect(url_for('.index'))
-    posts = Blog.query.all()
+    posts = Blog.query.order_by(Blog.date_posted.desc()).all()
     return render_template('blogpost.html', form=form, posts=posts)
 
 
