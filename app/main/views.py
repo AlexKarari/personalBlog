@@ -4,6 +4,7 @@ from .forms import Blog_PostForm, Comment_Form
 from ..models import Blog, User_comments
 from .. import db
 import markdown2
+from flask_login import current_user
 
 @main.route('/', methods=['GET','POST'])
 def index():

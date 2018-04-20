@@ -25,10 +25,15 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                     {% if current_user.is_authenticated %}
                     <li>
                         <a href="/blogpost/">Create Blog</a>
                     </li>
-                </ul>
+                     {%endif%}
+                    <li>
+                        <a href="/authenticate/login">Login As Admin</a>
+                    </li>
+                    </ul>
             </div>
         </div>
     </div>
