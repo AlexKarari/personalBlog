@@ -37,7 +37,7 @@ class User(UserMixin,db.Model):
         return f'User {self.name}'
 
 
-admin.add_view(ModelView(User, db.session))
+
 
 class Blog(db.Model):
     __tablename__='blog'
@@ -71,5 +71,10 @@ class Subscription(db.Model):
         return f'User {self.name}'
 
 
+admin.add_view(ModelView(User, db.session))
 
+admin.add_view(ModelView(Blog, db.session))
 
+admin.add_view(ModelView(User_comments, db.session))
+
+admin.add_view(ModelView(Subscription, db.session))
