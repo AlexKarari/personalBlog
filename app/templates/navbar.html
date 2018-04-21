@@ -24,22 +24,30 @@
                         <a href="/">Home</a>
                     </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                     {% if current_user.is_authenticated %}
-                    <li>
-                        <a href="/blogpost/">Create Blog</a>
-                    </li>
-                    <li>
-                        <a href="/admin">Admin</a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('auth.logout')}}">Sign out</a>
-                    </li>
-                     {%endif%}
-                    <li>
-                        <a href="/authenticate/login">Login As Admin</a>
-                    </li>
+                <div class="dropdown nav navbar-nav navbar-right">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="true">
+                        MENU
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                         {% if current_user.is_authenticated %}
+                        <li>
+                            <a href="/blogpost/">Create Blog</a>
+                        </li>
+                        <li>
+                            <a href="/admin">Admin</a>
+                        </li>
+                        <li>
+                            <a href="{{url_for('auth.logout')}}">Sign out</a>
+                        </li>
+                         {%endif%}
+                        <li>
+                            <a href="/authenticate/login">Login As Admin</a>
+                        </li>
                     </ul>
+                </div>
+
             </div>
         </div>
     </div>

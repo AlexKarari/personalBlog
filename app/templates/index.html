@@ -16,8 +16,8 @@
 {% block content %}
 <body>
     {% for post in posts %}
-    <li><a href='{{url_for ("main.blog", id = post.id)}}'>{{post.blog_name}}</a></li>
-    <p>{{post.blog_info | truncate(50)}}</p>
+    <h4><a href='{{url_for ("main.blog", id = post.id)}}'>{{post.blog_name}}</a></h4>
+    <p>{{post.blog_info | truncate(200)}}</p>
     {% endfor %}
 
     <!-- Styles block -->
