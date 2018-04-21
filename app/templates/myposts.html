@@ -3,22 +3,23 @@
 {% block content %}
 <div class="container">
      
-    <li>{{blog.blog_name}}</li>
-    <li>{{blog.blog_info}}</li>
-    <li>{{blog.date_posted}}</li>
-   
-    
+    <h3>{{blog.blog_name}}</h3>
+    <p>{{blog.blog_info}}</p>
+    <h4>Posted at: {{blog.date_posted}}<h4> 
    
 </div>
 <div class="container">
     {{ wtf.quick_form(commentform) }} 
-    {{simplemde.load}}
+    <!-- {{simplemde.load}} -->
 </div>
+<hr>
 {% if comments %}
  {% for comment in comments %}
- <li>{{comment.comment}}</li>
+ <ol><li>{{comment.comment}}</li></ol>
+ 
  {% endfor %}
 {% else %}
+<hr>
 <p>This post has no comments yet</p>
 {% endif %}
 
