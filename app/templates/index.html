@@ -15,9 +15,16 @@
 <!-- Content block -->
 {% block content %}
 <body>
-    {% for post in posts %}
-    <h4><a href='{{url_for ("main.blog", id = post.id)}}'>{{post.blog_name}}</a></h4>
-    <p>{{post.blog_info | truncate(200)}}</p>
+     {% for post in posts %}
+    <div class="container panel panel-default">
+        <div class="panel-heading">
+            <h4>
+                <a href='{{url_for ("main.blog", id = post.id)}}'>{{post.blog_name}}</a>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <p>{{post.blog_info | truncate(500)}}</p>
+        </div>
     {% endfor %}
 
     <!-- Styles block -->
