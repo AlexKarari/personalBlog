@@ -4,8 +4,7 @@ from app import create_app,db
 from app.models import User, Blog, User_comments, Subscription
 
 
-
-app = create_app('production')
+app = create_app('development')
 
 manager = Manager(app)
 
