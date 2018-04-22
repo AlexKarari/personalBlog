@@ -3,11 +3,15 @@
 {% block content %}
 <div class="container">
      
-    <h3>{{blog.blog_name}}</h3>
-    <p>{{blog.blog_info}}</p>
-    <h4>Posted at: {{blog.date_posted}}<h4> 
+    <h3 style="text-align: center; font-weight: bolder">{{blog.blog_name}}</h3>
+    <hr>
+    <p style="justify-content:space-evenly">{{blog.blog_info}}</p>
+    <h4 style="font-weight: bold">Posted at: {{blog.date_posted}}<h4> 
    
 </div>
+<hr>
+<h3>Comments Section</h3>
+<hr>
 <div class="container">
     {{ wtf.quick_form(commentform) }} 
     <!-- {{simplemde.load}} -->
@@ -15,6 +19,7 @@
 <hr>
 {% if comments %}
  {% for comment in comments %}
+ <h5 style="font-family:cursive; font-style: italic">{{comment.username}} wrote:</h5>
  <ol><li>{{comment.comment}}</li></ol>
  
  {% endfor %}

@@ -1,0 +1,9 @@
+body{
+    font-family: 'Bree Serif', serif;
+    background-color: black;
+}
+
+.panel-heading h4{
+    text-align: center;
+    font-weight: bold;
+}
