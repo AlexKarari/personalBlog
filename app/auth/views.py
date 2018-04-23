@@ -1,8 +1,8 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import auth
 from flask_login import login_user, logout_user, login_required,current_user
-from ..models import User
-from .forms import LoginForm, RegistrationForm
+from ..models import User, Subscription
+from .forms import LoginForm, RegistrationForm, SubscriptionForm
 from .. import db
 from ..email import mail_message
 
@@ -42,3 +42,21 @@ def logout():
     logout_user()
     flash('You have been successfully logged out')
     return redirect(url_for("main.index"))
+
+
+@auth.route('/subscription', methods=["GET", "POST"])
+def subscription():
+    subform = SubscriptionForm()
+    if subform.validate_on_submit():
+        subscribers = Subscription(name=subform.name.data, email=subform.user_email.data)
+
+        db.session.add(subscribers)
+        db.session.commit()
+
+        mail_message("Welcome to xander's chronicles...",
+                     "email/welcome_user", subscribers.email, subscribers=subscribers)
+
+        return redirect(url_for('main.index'))
+        title = "New Subscription"
+    return render_template('auth/subscribe.html', subscription_form=subform)
+

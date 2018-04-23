@@ -1,0 +1,5 @@
+Hey there {{subscribers.name}}!
+Such a delight to have you subscribe to my blog, do feel welcomed.
+Enjoy the journey and thoughts of Xander's heart and mind.
+Warm regards,
+Xander's Chronicles Blogging team.
