@@ -23,7 +23,21 @@ def validate_email(self, data_field):
 def validate_username(self, data_field):
     if User.query.filter_by(username=data_field.data).first():
         raise ValidationError('That username is taken')
-        
+
+class SubscriptionForm(FlaskForm):
+    name = StringField('Enter your username', validators=[Required()])
+    user_email = StringField('Your Email Address', validators=[Required(), Email()])
+
+
+def validate_name(self, data_field):
+    if User.query.filter_by(username=data_field.data).first():
+        raise ValidationError('That username is taken')
+
+def validate_user_email(self, data_field):
+    if User.query.filter_by(email=data_field.data).first():
+        raise ValidationError('There is an account with that email')
+
+    
 class LoginForm(FlaskForm):
     email = StringField('Your Email Address', validators=[Required(), Email()])
     password = PasswordField('Password', validators=[Required()])

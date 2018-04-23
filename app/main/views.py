@@ -21,7 +21,9 @@ def index():
 
         return redirect(url_for('.blogpost'))
     posts = Blog.query.order_by(Blog.date_posted.desc()).all()
-    return render_template('index.html', form=form,posts =posts)
+    for post in posts:
+        format_posts = markdown2.markdown(post.blog_info, extras=["code-friendly", "fenced-code-blocks"])
+    return render_template('index.html', form=form, posts=posts, format_posts=format_posts)
 
 @main.route('/blogpost/', methods=['GET', 'POST'])
 def new_blog():
@@ -61,7 +63,6 @@ def blog(id):
         return redirect(url_for('.blog',id = id))
     blog = Blog.query.get(id)
     comments = User_comments.query.filter_by(blogID=id).all()
-    # format_comments = markdown2.markdown(comments.comuswment, extras=["code-friendly", "fenced-code-blocks"])
     title = f'{blog.blog_name}'
     return render_template('myposts.html', commentform=commentform, blog=blog,title =title, comments = comments)
 
