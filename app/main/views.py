@@ -53,7 +53,6 @@ def blog(id):
         name = commentform.name.data
         email = commentform.email.data
         comment = commentform.comment.data
-
         comment = User_comments(username=name, email=email, comment=comment,blogID = id)
 
         db.session.add(comment)
