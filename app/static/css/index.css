@@ -1,6 +1,6 @@
 body{
     font-family: 'Bree Serif', serif;
-    background-image: url("{{url_for('static', './andrew-neel-178721-unsplash.jpg'}}");
+    background-color: dimgray;
     
 }
 

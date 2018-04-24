@@ -60,3 +60,4 @@ def subscription():
         title = "New Subscription"
     return render_template('auth/subscribe.html', subscription_form=subform)
 
+
