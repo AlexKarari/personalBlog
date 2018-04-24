@@ -42,7 +42,7 @@ The following are needed for the application to run on a local computer:
 
 
 ## Link
-https://xandersblog.herokuapp.com/
+https://bloggeralex.herokuapp.com/
 
 ## License 
 MIT License
