@@ -25,7 +25,7 @@ def index():
     posts = Blog.query.order_by(Blog.date_posted.desc()).all()
     for post in posts:
         format_posts = markdown2.markdown(post.blog_info, extras=["code-friendly", "fenced-code-blocks"])
-    return render_template('index.html', form=form, posts=posts, format_posts=format_posts)
+    return render_template('index.html', format_posts=format_posts, form=form, posts=posts)
 
 @main.route('/blogpost/', methods=['GET', 'POST'])
 def new_blog():
