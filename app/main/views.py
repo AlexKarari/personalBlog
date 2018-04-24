@@ -24,7 +24,7 @@ def index():
         return redirect(url_for('.blogpost'))
     posts = Blog.query.order_by(Blog.date_posted.desc()).all()
     
-    return render_template('index.html', format_posts=format_posts, form=form, posts=posts)
+    return render_template('index.html', form=form, posts=posts)
 
 @main.route('/blogpost/', methods=['GET', 'POST'])
 def new_blog():
