@@ -23,8 +23,7 @@ def index():
 
         return redirect(url_for('.blogpost'))
     posts = Blog.query.order_by(Blog.date_posted.desc()).all()
-    for post in posts:
-        format_posts = markdown2.markdown(post.blog_info, extras=["code-friendly", "fenced-code-blocks"])
+    
     return render_template('index.html', format_posts=format_posts, form=form, posts=posts)
 
 @main.route('/blogpost/', methods=['GET', 'POST'])
